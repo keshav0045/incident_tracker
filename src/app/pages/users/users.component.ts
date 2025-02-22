@@ -23,14 +23,14 @@ export class UsersComponent implements OnInit {
     this.loadUsers();
   }
 
-  initializeForm(){
+  initializeForm(userData?:any){
     this.userForm = new FormGroup({
-      userId : new FormControl(0),
-      userName : new FormControl(''),
-      emailId : new FormControl(''),
-      fullName : new FormControl(''),
-      password : new FormControl(''),
-      role : new FormControl('')
+      userId : new FormControl(userData ? userData.userId:0),
+      userName : new FormControl(userData ? userData.userName:''),
+      emailId : new FormControl(userData ? userData.emailId:''),
+      fullName : new FormControl(userData ? userData.fullName:''),
+      password : new FormControl(userData ? userData.password:''),
+      role : new FormControl(userData ? userData.role:'')
     });
   };
 
@@ -39,7 +39,12 @@ export class UsersComponent implements OnInit {
     this.masterSrv.getAllUsers().subscribe((res:any)=>{
       this.userList.set(res.data);
     })
-  }
+  };
+
+  onEdit(userData: any){
+    this.initializeForm(userData)
+  };
+  
 
   onSaveUser(){
     debugger;
