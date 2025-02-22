@@ -9,8 +9,26 @@ export class MasterService {
 
   http = inject(HttpClient);
 
+  apiUrl : string = "https://projectapi.gerasim.in/api/IncidentTracking/"   // since this is going to be comman service for all the components, we will use base url here and then append the api url in each
+
   login(obj:user){
     debugger;
-    return this.http.post<IAPIRESPONSE>("https://projectapi.gerasim.in/api/IncidentTracking/login",obj);
+    return this.http.post<IAPIRESPONSE>(this.apiUrl + "login",obj);  // using concadination
+  }
+
+  getAllUsers(){
+    return this.http.get(`${this.apiUrl}GetAllUsers`)   // using templet literals 
+  }
+
+  createNewUser(obj:any){
+    return this.http.post(`${this.apiUrl}Register`,obj)   
+  }
+
+  updateUser(obj:any){
+    return this.http.post(`${this.apiUrl}UpdateUser`,obj)   
+  }
+
+  deleteUserById(id:number){
+    return this.http.delete(`${this.apiUrl}DeleteUserByUserId?userId=${id}`)   
   }
 }
