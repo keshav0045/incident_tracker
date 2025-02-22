@@ -1,0 +1,17 @@
+<div class="parentDiv">
+  <div class="sidebar">
+    <div>
+      <h4>Dashboard</h4>
+      <a href="#">Home</a>
+      <a href="#">Users</a>
+      <a href="#">Settings</a>
+    </div>
+    <div>
+      <p>Logged in as: <strong>{{loggedUserData.userName}}</strong></p>
+      <button class="btn btn-danger w-100" type="button" (click)="logOff()">Log Off</button>
+    </div>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
