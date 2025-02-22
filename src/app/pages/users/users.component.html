@@ -28,7 +28,7 @@
                   </select>
               </div>
           </div>
-          <button type="button" (click)="onSaveUser()" class="btn btn-primary">Save User</button>
+          <button type="button" (click)="onSaveUser()" class="btn btn-primary mt-3" >Save User</button>
       </form>
   </div>
 
@@ -37,22 +37,21 @@
       <h5>User List</h5>
       <div class="card-container">
           <div class="row" id="userList">
-              <div class='col-3'>
-                  <div class="card user-card p-3">
-                      <h6> fullName role </h6>
-                      <p>Email: user.emailId </p>
-                      <p>Username: user.userName </p>
-                      <button class="btn btn-danger btn-sm">Delete</button>
-                  </div>
-              </div>
-              <div class='col-3'>
-                  <div class="card user-card p-3">
-                      <h6> fullName role </h6>
-                      <p>Email: user.emailId </p>
-                      <p>Username: user.userName </p>
-                      <button class="btn btn-danger btn-sm">Delete</button>
-                  </div>
-              </div>
+            @for(item of userList(); track $index){
+                <div class='col-3'>
+                    <div class="card user-card p-3">
+                        <h6> {{item.fullName}} {{item.role}} </h6>
+                        <p>Email: {{item.emailId}} </p>
+                        <p>Username: {{item.userName}} </p>
+                        <div class="row">
+                            <div class="col-6">
+                                <button class="btn btn-danger btn-sm">Delete</button>
+                                <button class="btn btn-primary btn-sm">Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }   
           </div>
       </div>
   </div>
