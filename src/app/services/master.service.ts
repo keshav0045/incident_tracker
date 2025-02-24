@@ -31,4 +31,8 @@ export class MasterService {
   deleteUserById(id:number){
     return this.http.delete(`${this.apiUrl}DeleteUserByUserId?userId=${id}`)   
   }
+
+  createNewIncident(obj:any){
+    return this.http.post(`${this.apiUrl}createIncident`,obj)   
+  }
 }
