@@ -28,7 +28,12 @@
                   </select>
               </div>
           </div>
-          <button type="button" (click)="onSaveUser()" class="btn btn-primary mt-3" >Save User</button>
+          @if(userForm.controls['userId'].value == 0){
+            <button type="button" (click)="onSaveUser()" class="btn btn-primary mt-3" >Save User</button>
+          }@else{
+            <button type="button" (click)="onUpdateUser()" class="btn btn-warning mt-3" >update User</button>
+          }
+          
       </form>
   </div>
 

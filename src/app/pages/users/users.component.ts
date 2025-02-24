@@ -60,4 +60,22 @@ export class UsersComponent implements OnInit {
 
   }
 
+  onUpdateUser(){
+    const formValue = this.userForm.value;
+
+    formValue.createdDate = new Date()
+    formValue.projectName = "IncidentTracking"
+    formValue.refreshToken = ''
+    formValue.refreshTokenExpiryTime = new Date()
+
+    this.masterSrv.updateUser(formValue).subscribe((res:any)=>{
+      if(res.result){
+        alert("user updated success");
+        this.loadUsers();
+      }else{
+        alert("res.message");
+      }
+    })
+  }
+
 }
