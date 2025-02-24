@@ -50,7 +50,7 @@
                         <p>Username: {{item.userName}} </p>
                         <div class="row">
                             <div class="col-6">
-                                <button class="btn btn-danger btn-sm">Delete</button>
+                                <button class="btn btn-danger btn-sm" (click)="onDeleteUser(item.userId)">Delete</button>
                             </div>
                             <div class="col-6 text-end">
                                 <button class="btn btn-primary btn-sm" (click)="onEdit(item)">Edit</button>
