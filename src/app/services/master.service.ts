@@ -35,4 +35,17 @@ export class MasterService {
   createNewIncident(obj:any){
     return this.http.post(`${this.apiUrl}createIncident`,obj)   
   }
+
+  getIncidentCreatedByUser(id: number){
+    return this.http.get(`${this.apiUrl}getIncidentCreatedByUser?userId=${id}`)   
+  }
+
+  getIncidentAssigntoUser(id: number){
+    return this.http.get(`${this.apiUrl}getIncidentAssigntoUser?userId=${id}`)   
+  }
+
+  getAllIncidents(){
+    return this.http.get(`${this.apiUrl}getAllIncidents`)   
+  }
+
 }
